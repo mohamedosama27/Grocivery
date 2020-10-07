@@ -1,374 +1,165 @@
-  .shopnowBtn {
-      font-size: 8px;
-      padding: 2px 3px;
-      color: black;
+body{
+    padding-bottom: 30px;
+}
+.buttons {
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    box-shadow: rgba(0, 0, 0, 0.2) 5px 5px 0px; 
+    font-size: 14px;
+    font-weight: 700;
+    font-family: "Source Sans Pro", arial, sans-serif;
+    color: black;
+
+ }
+ /* Start cart icon */
+ .btn-cart{
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border-radius: 60%;
+    border: none;
+ }
+ .btn-cart .fa{
+    padding: 6px;
+    color: white;
+    padding-right: 8px;
+ }
+ .wrapper {
+    position: relative;
+}
+
+.wrapper .countCart {
+    background-color: red;
+    position: fixed;
+    z-index: 199;
+    bottom: 60px;
+    right: 30px;
+    font-size: 17px;
+  
+}
+/* End cart icon */
+
+/* Start main bar */
+ .bar{
+    background-image:url('../images/bar_images.jpg');
+    background-size: cover;
+    height: 500px;
+ }
+ .mainBar{
+     color: green;
+ }
+
+/* End main bar */
+ /* Start Subscribe */
+
+  .SubscribeInput{
+    background-color: rgb(246, 246, 246);
+    border-color: rgb(218, 218, 218);
+    border-width: 0px;
+    padding: 10px 32px;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: "Source Sans Pro", arial, sans-serif;
+    min-width: 600px;
+    margin: 10px;
+  }
+  .Subscribe{
+      margin-left: 8%;
+  }
+  .Subscribe .title{
+      margin: 10px;
+      display: inline;
+  }
+  /* End Subscribe */
+
+
+/* Start slider */
+.gallery {
+    background: #EEE;
   }
   
-  .subscribe {
-      margin-top: 80px;
-      margin-bottom: 80px;
+  .gallery-cell {
+    width: 60%;
+    height: 400px;
+    opacity: 0.2;
+  }
+  .is-selected{
+    opacity: 1;
+  }
+  .gallery-cell img{
+      height: 100%;
+      width: 100%;
   }
   
-  .subscribe .form-control,
-  .subscribe .btn {
-      border-radius: 0px;
-      height: 25px;
-  }
+/* End slider */
+
+/* Start shop now section */
+.shop-now-section{
+    margin: 20px;
+    margin-top: 60px;
+}
+.shop-now-section p{
+    font-size: 38px;
+    font-family: 'Fjalla One', arial, sans-serif;
+    line-height: 1.2;
+    font-weight: 500;
+    color: rgb(27, 27, 27);
+}
+
+/* End shop now section */
+
+/* Start about us section */
+.aboutus div{
+    text-align: center;
+    margin-top: 70px;
+    max-width: 50%;
+}
+.aboutus img{
+    float: right;
+    max-width: 50%;
+}
+.aboutus ul { display:inline-table; }
+.aboutus p{
+    line-height: 2.5em;
+    font-weight: 600;
+}
+/* End about us section */
+
+
+@media (max-width:768px) {
+
+     /* Start main bar */
+    .bar{
+        height: 500px;
+    }
   
-  .subscribe .btn {
-      margin-left: -4px;
-      padding: 1px 12px;
-  }
+    /* End main bar */
+
+    /* Start Subscribe */
+    .Subscribe .buttons , .SubscribeInput{
+        width:100%
+    }
+    .Subscribe{
+        margin-left: 0px;
+    }
+    .Subscribe .title{
+        display: block;
+    }
+    /* End Subscribe */
+
+
+    /* Start about us section */
+    .aboutus div{
+        min-width: 100%;
+    }
+    .aboutus img{
+        float: left;
+        min-width: 100%;
+    }
   
-  .slogo {
-      margin-top: 80px;
-      width: 300px;
-  }
-  
-  .shopCollection {
-      margin-top: 60px;
-  }
-  
-  .shopCollection {
-      text-align: center;
-      display: inline-block;
-  }
-  
-  .shopCollection .imageDiv {
-      display: inline-block;
-      width: auto;
-      padding-left: 0px;
-      padding-right: 0px;
-      position: relative;
-      text-align: center;
-      color: white;
-  }
-  
-  .shopCollection .imageDiv p {
-      font-weight: 900;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-  }
-  /* Start donate section */
-  
-  .donate p {
-      font-weight: bold;
-      margin: 0;
-  }
-  
-  .donate .description {
-      font-weight: lighter;
-  }
-  
-  .donate .first-item .description {
-      max-width: 58%;
-  }
-  
-  .donate .first-item .item-img {
-      height: 225px;
-      width: 150px;
-      position: absolute;
-      right: 10px;
-      margin-top: -30px;
-  }
-  
-  .donate .second-item .item-img {
-      height: 225px;
-      width: 150px;
-      position: absolute;
-      margin-top: -50px;
-      padding-left: 10px;
-  }
-  
-  .donate .second-item .content {
-      width: 58%;
-      float: right;
-  }
-  
-  .donate .second-item {
-      overflow: auto;
-      padding-top: 20px;
-      background-color: white;
-      padding-right: 5px;
-  }
-  
-  .donate .first-item {
-      background-color: white;
-      padding-left: 5px;
-      /* max-width: 90%; */
-  }
-  
-  .donate {
-      margin-bottom: 50px;
-  }
-  /* End donate section */
-  /* Start favorites Section */
-  
-  .donate .donate-title {
-      height: 140px;
-      width: 400px;
-  }
-  
-  .favoritesSection .images {
-      margin-bottom: 10px;
-      height: 400px;
-      width: 620px;
-  }
-  
-  .favoritesSection .first,
-  .favoritesSection .third {
-      width: 200px;
-      height: 200px;
-  }
-  
-  .favoritesSection .first {
-      margin-top: -204px;
-  }
-  
-  .favoritesSection .second {
-      display: inline-block;
-      width: 400px;
-      height: 404px;
-  }
-  
-  .favoritesSection .third {
-      margin-top: -224px;
-  }
-  /* End favorites Section */
-  
-  .celebritiesSection {
-      text-align: center;
-  }
-  
-  .celebritiesSection .img-div {
-      margin-left: 10px;
-      border-style: solid;
-      border-color: #27BECE;
-      padding-left: 0px;
-      padding-right: 0px;
-      margin-bottom: 10px;
-      display: inline-block;
-      text-align: center;
-  }
-  
-  .celebritiesSection .img-div img {
-      width: 200px;
-      height: 200px;
-  }
-  
-  .celebritiesSection p {
-      margin: 0;
-      line-height: 3em;
-      font-size: 9px;
-  }
-  
-  .celebritiesSection,
-  .favoritesSection {
-      background-image: url("/images/pattern2.png");
-      background-repeat: no-repeat;
-  }
-  
-  .celebritiesSection {
-      margin-top: 60px;
-  }
-  
-  @media (min-width:768px) {
-      .celebrities-title {
-          width: 400px;
-          height: 160px;
-      }
-      .favoritesSection {
-          background-size: 200px 400px;
-      }
-      /* Start donate section */
-      .donate .first-item {
-          padding: 20px;
-          padding-left: 30px;
-      }
-      .donate .second-item {
-          padding: 20px;
-          margin-bottom: 62px;
-          margin-top: 30px;
-      }
-      .donate .first-item .item-img {
-          height: 400px;
-          width: 320px;
-          margin-top: -150px;
-      }
-      .donate .second-item .item-img {
-          height: 400px;
-          width: 350px;
-          margin-top: -110px;
-          padding-left: 10px;
-      }
-      .donate {
-          margin-bottom: 200px;
-      }
-      .donate p {
-          margin: 5px;
-      }
-      .donate .first-item .description,
-      .donate .second-item .content {
-          max-width: 50%;
-      }
-      /* End donate section */
-      .subscribe .form-control {
-          width: 500px;
-      }
-      .shopCollection .imageDiv img {
-          width: 200px;
-          height: 200px;
-      }
-      .celebritiesSection {
-          background-size: 30% 100%;
-      }
-      .craftsmanship .pattern {
-          margin-top: -100px;
-          top: 0px;
-          height: 400px;
-      }
-      .craftsmanship .col-xs-9 {
-          margin-top: auto;
-      }
-      .craftsmanship {
-          margin-bottom: 70px;
-          margin-top: 80px;
-      }
-      .shopnowBtn {
-          font-size: 18px;
-          padding: 5px 8px;
-          color: black;
-      }
-  }
-  
-  @media only screen and (min-width:768px) and (max-width:1000px) {
-      .craftsmanship .CraftsmanshipImg {
-          margin-left: 0px;
-          height: 350px;
-          width: 270px;
-          position: absolute;
-          display: inline-block;
-          padding-right: 5px;
-      }
-  }
-  
-  @media (max-width:768px) {
-      .celebritiesSection .img-div img {
-          width: 135px;
-          height: 135px;
-      }
-      /* Start donate section */
-      .donate .donate-title {
-          height: 100px;
-          width: 70%;
-      }
-      /* End donate section */
-      /* Start favorites Section */
-      .favoritesSection .images {
-          height: 200px;
-          width: 305px;
-      }
-      .favoritesSection .first,
-      .favoritesSection .third {
-          width: 100px;
-          height: 100px;
-      }
-      .favoritesSection .first {
-          margin-top: -104px;
-      }
-      .favoritesSection .second {
-          display: inline-block;
-          width: 200px;
-          height: 204px;
-      }
-      .favoritesSection .third {
-          margin-top: -122px;
-      }
-      .favoritesSection {
-          background-size: 200px 200px;
-      }
-      /* End favorites Section */
-      .craftsmanship .row {
-          margin: 0px;
-      }
-      .craftsmanship h3 {
-          margin-top: 25px;
-      }
-      .mainCarousel .item {
-          height: 250px;
-      }
-      .mainCarousel .item img {
-          position: absolute;
-          top: 0;
-          left: 0;
-          min-height: 250px;
-      }
-      .titles {
-          font-size: 18px;
-      }
-      .subscribe .form-control {
-          width: 200px;
-          display: inline-block;
-      }
-      .shopCollection .imageDiv img {
-          width: 135px;
-          height: 150px;
-      }
-      .craftsmanship .CraftsmanshipImg {
-          height: 350px;
-          width: 100%;
-          min-width: 250px;
-      }
-      .craftsmanship .img {
-          margin-top: -40%;
-      }
-      .craftsmanship .col-xs-9 {
-          position: relative;
-      }
-      .craftsmanship .col-xs-9 p {
-          padding-bottom: 160px;
-      }
-      .celebritiesSection {
-          background-size: 70% 100%;
-      }
-  }
-  
-  @media (min-width: 900px) {
-      .donate .second-item .content {
-          max-width: 58%;
-      }
-      .craftsmanship .CraftsmanshipImg {
-          margin-left: 10%;
-          height: 350px;
-          width: 270px;
-          position: absolute;
-          bottom: -70px;
-          padding-right: 10px;
-      }
-  }
-  
-  @media only screen and (min-width:490px) and (max-width:768px) {
-      .craftsmanship .img {
-          margin-top: -20%;
-      }
-  }
-  
-  @media (max-width:718px) {
-      .celebritiesSection {
-          background-size: contain;
-      }
-  }
-  
-  @media (max-width:325px) {
-      .favoritesSection .second {
-          width: 180px;
-      }
-      .donate .first-item .item-img {
-          width: 130px;
-      }
-      .donate .second-item .item-img {
-          width: 130px;
-      }
+    
+    /* End about us section */
+
   }

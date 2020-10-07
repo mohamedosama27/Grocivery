@@ -15,7 +15,7 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn brandcolor" data-dismiss="modal" style="color:white;">OK</button>
+        <button type="button" class="brandcolor buttons" data-dismiss="modal" style="color:white;">OK</button>
       </div>
 
     </div>

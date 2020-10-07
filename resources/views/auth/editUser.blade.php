@@ -95,7 +95,7 @@
 
 <br>
   
-  <button type="submit" class="w3-btn btn-block w3-round-xxlarge w3-light-blue">
+  <button type="submit" class="brandcolor btn btn-block w3-round-xxlarge ">
 Edit
     </button>
   <br>

@@ -25,6 +25,32 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
+// Start reviews
+Route::put('/createReview',
+['uses' => 'ReviewController@store',
+    'as' => 'review.store'
+])->middleware('auth');
+
+Route::get('/deleteReview/{id}',
+['uses' => 'ReviewController@delete',
+    'as' => 'review.delete'
+])->middleware('auth');
+// End reviews
+
+// Start blog
+Route::get('/blog', function () {
+    return view('blog');
+})->name('blog');
+// End blog
+
+
+// Start recipes 
+Route::get('/recipes', function () {
+    return view('recipes');
+})->name('recipes');
+// End recipes
+
+
 //start customize order
 
 Route::put('/createCustomizeOrder',

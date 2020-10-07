@@ -2,16 +2,13 @@
     bottom: 0;
     left: 70%;
 }
+.btn-addtocart{
+float: right;
+margin-top: -60px;}
 
-.productImg {
-    position: relative;
-    border-style: solid;
-    border-color: rgba(86, 156, 172, 0.87);
-    height: 200px;
-}
 
 .product p {
-    max-width: 100%;
+    max-width: 50%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -31,33 +28,21 @@
     opacity: 1;
 }
 
-.productImg .btn {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    padding: 10px;
-    font-weight: bold;
-    background: rgba(214, 214, 194, 0.3);
-}
 
 .addtowishlist {
     font-weight: 1000;
-    margin-top: 3px;
+    margin-top: -40px;
     font-size: 12px;
+    float: right;
 }
 
-.product .item img {
+.product .productImg {
+    max-height: 200px;
     width: 100%;
-    height: 100%;
+    margin-bottom: 10px;
 }
 
-.productImg img {
-    height: 194px;
-}
 
-.productImg>img {
-    min-height: 80%;
-}
 
 .btnWeight {
     font-weight: 900;
@@ -65,61 +50,35 @@
 
 .product {
     padding-bottom: 40px;
+    max-width: 300px;   
+
 }
 
 .carousel-control .fa {
     padding-top: 100%;
 }
-
-.topCarousel .carousel-indicators {
-    list-style: none;
+.product .item img{
+ width: 100%;
+ height: 100%;
 }
 
-.topCarousel .carousel-indicators li {
-    width: 20px;
-    height: 20px;
-    position: relative;
-    border: none;
-    opacity: 0.5;
-    bottom: 0px;
-}
-
-.topCarousel .carousel-indicators li.active {
-    width: 30px;
-    height: 30px;
-    position: relative;
-    border: none;
-    background: none;
-    opacity: 1;
-    bottom: 0px;
-}
-
-.topCarousel .carousel-indicators img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
 
 @media (min-width:768px) {
-    .topCarousel .carousel-indicators li {
-        width: 30px;
-        height: 30px;
-    }
-    .topCarousel .carousel-indicators li.active {
-        width: 50px;
-        height: 50px;
-    }
-    .productImg {
-        border-style: solid;
-        border-color: rgba(86, 156, 172, 0.87);
-        height: 300px;
+
+    .product {
+    display: inline-block; 
+    margin-right: 20px;   
+ }
+
+}
+@media (min-width:1000px) {
+    .productsRow{
+        max-width: 1000px;
     }
 }
 
-@media (max-width:768px) {
-    .carousel-control .fa {
-        padding-top: 150%;
+@media (min-width:800px) and (max-width:1000px) {
+    .productsRow{
+        max-width: 700px;
     }
 }

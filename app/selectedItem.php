@@ -10,6 +10,6 @@ class selectedItem
     public function __construct($id)
     {
         $this->item =\App\item::find($id);
-        $this->Quantity = 1;
+        $this->Quantity = 0.5;
     }
 }

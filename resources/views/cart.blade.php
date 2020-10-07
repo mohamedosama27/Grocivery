@@ -63,7 +63,7 @@ $totalprice=0
     @include('errormessage')
   @include('addaddress')
     <a  @auth data-toggle="modal" data-target="#addaddress" @else href=" login" @endauth >
-  <button class="checkoutButton btn brandcolor">Add Address</button>
+  <button class="checkoutButton buttons brandcolor">Add Address</button>
 </div>
 </div>
 @else

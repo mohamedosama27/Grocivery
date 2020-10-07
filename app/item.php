@@ -22,4 +22,8 @@ class item extends Model
     {
         return $this->belongsTo(category::class);
     }
+    public function reviews()
+    {
+        return $this->hasMany(review::class);
+    }
 }

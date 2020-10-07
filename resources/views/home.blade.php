@@ -252,7 +252,11 @@
               else
               {
                 $('#messaga').text(data.message)
-                $('#errormessage').modal();
+                // $('#errormessage').modal();
+                $('#errormessage').modal('show');
+                setTimeout(function() {
+                    $('#errormessage').modal('hide');
+                }, 1000);
               }
                 
             }

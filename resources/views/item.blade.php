@@ -6,127 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <meta name="csrf-token" content="{{ csrf_token() }}" />
-<style>
-  
- 
-.fa-heart{
-  font-size:18px;
-  color:red;
-  }
-img {
-  max-width: 100%; 
-  max-height:400px;
-  max-width:200px;
-  
-   }
-   @media screen and (min-width: 996px) {
-     .card{
-       margin-right:100px;
-     }
-   }
+<link rel="stylesheet" href="/css/show_item.css">
 
-
-
-  @media screen and (max-width: 996px) {
-    .preview {
-      margin-bottom: 20px; } }
-
-.preview-pic {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1; }
-
-.preview-thumbnail.nav-tabs {
-  border: none;
-  margin-top: 15px; }
-  .preview-thumbnail.nav-tabs li {
-    width: 18%;
-    margin-right: 2.5%; }
-    .preview-thumbnail.nav-tabs li img {
-      max-width: 100%;
-      display: block; }
-    .preview-thumbnail.nav-tabs li a {
-      padding: 0;
-      margin: 0; }
-    .preview-thumbnail.nav-tabs li:last-of-type {
-      margin-right: 0; }
-
-.tab-content {
-  overflow: hidden; }
-  .tab-content img {
-    width: 100%;
-    -webkit-animation-name: opacity;
-            animation-name: opacity;
-    -webkit-animation-duration: .3s;
-            animation-duration: .3s; }
-
-.card {
-  margin-top: 20px;
-  background:rgb(250, 250, 250);
-  padding: 3em;
-  line-height: 1.5em; }
-
-@media screen and (min-width: 997px) {
-  .wrapper {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex; } }
-
-
-
-
-
-.product-title, .price,{
-  text-transform: UPPERCASE;
-  font-weight: bold; }
-
-.checked, .price span {
-  color: #ff9f1a; }
-
-.product-title, .product-description, .price,  {
-  margin-bottom: 15px; }
-
-.product-title {
-  margin-top: 0; }
-
-
-
-
-
-
-
- .EGP{
-  margin-left:5px;
-  font-size:12px;
-  display:inline;
-}
-
-
-@-webkit-keyframes opacity {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(3);
-            transform: scale(3); }
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-            transform: scale(1); } }
-
-@keyframes opacity {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(3);
-            transform: scale(3); }
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-            transform: scale(1); } }
-        
-
-</style>
-	
 	<div class="container">
 		<div class="card">
 			<div class="container-fliud">
@@ -158,7 +39,7 @@ img {
 						<h3 class="product-title">{{$item->name}}</h3>
 						
 						<p class="product-description">{{$item->description}}</p>
-						<h4 class="price">current price: <span>{{$item->price}} <p class="EGP">LE</p></span></h4>
+						<h4 class="price"><span>{{$item->price}} <p class="EGP">LE</p></span></h4>
 					
 				
 						<div class="action">
@@ -188,6 +69,72 @@ img {
 
 					</div>
 				</div>
+      <!-- start Reviews section -->
+      <br>
+      
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default widget">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Reviews</h3>
+                
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                @foreach($item->reviews as $review)
+
+                    <li class="list-group-item">
+                        <div class="row">
+                          
+                            <div class="col-xs-10 col-md-11">
+                                <div>
+                                    <p>{{$review->review}}</p>
+                                    <div class="mic-info">
+                                        By: {{$review->user->name}} on {{$review->created_at->format('d-m-Y')}}
+                                    </div>
+                                </div>
+                             
+                                <div class="action">
+                                   @auth
+                                   @if(Auth::user()->type == 1)
+                                    <button type="button" class="btn btn-success btn-xs" title="Approved">
+                                    <i class="fa fa-check"></i>
+                                    </button>
+                                    @endif
+                                    @if($review->user->id == Auth::user()->id || Auth::user()->type == 1)
+                                    <a href="{{route('review.delete',['id' => $review->id])}}">
+                                      <button type="button" class="btn btn-danger btn-xs" title="Delete">
+                                      <i class="fa fa-trash"></i>
+                                    </a>
+                                    </button>
+                                    @endif
+                                    @endauth
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                  @endforeach
+                    <li class="list-group-item">
+                        <div class="row">
+                        <form method="POST" action="{{route('review.store')}}">
+                          @csrf
+                          @method('PUT')
+                            <div class="form-group">
+                              <h3>Add your review:</h3>
+                              <input value="{{$item->id}}" name="id" hidden/>
+                              <textarea class="form-control" name="review"></textarea>
+                              <button type="submit" class="btn btn-primary pull-right">POST</button>
+                            </div>
+                          </form>
+                        </div>
+                   </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end reviews section -->
 			</div>
 		</div>
   </div>
@@ -247,8 +194,12 @@ $(document).on("click", '.btn-addtocart', function(e) {
 
               $("#countcart").text(data.countCart);
               $('#messaga').text("Added Sucessfully")
-                $('#errormessage').modal();
-            }
+                // $('#errormessage').modal();
+                $('#errormessage').modal('show');
+                setTimeout(function() {
+                    $('#errormessage').modal('hide');
+                }, 1000);
+              }
             else
             {
               $('#messaga').text(data.message)

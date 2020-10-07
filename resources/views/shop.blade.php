@@ -4,17 +4,14 @@
 <link rel="stylesheet" href="/css/shop.css">
 <link rel="stylesheet" href="/css/item_design.css">
 
-<div class="container">
-    <div class="row">
+    <div class="row productsRow center-block">
     @foreach($items as $item)
 
-        <div class="product col-xs-6 col-md-3">
+        <div class="product center-block">
 
-            <div class="productImg">
-            <img src={{ URL::asset("images/{$item->images->first()->name}")}} width="100%">      
-    
-                <button class="btn center-block" data-toggle="modal" data-target="#myModal{{$item->id}}">Quick View</button>
-              </div>
+            <a data-toggle="modal" data-target="#myModal{{$item->id}}">
+               <img class="productImg"src={{ URL::asset("images/{$item->images->first()->name}")}}>      
+            </a>
                <!-- Modal -->
   <div class="modal fade" id="myModal{{$item->id}}" role="dialog">
     <div class="modal-dialog modal-lg">
@@ -32,13 +29,11 @@
   @if ($loop->first)
 
     <li data-target="#carousel{{$item->id}}" data-slide-to="0" class="active">
-      <img src={{ URL::asset("images/Logo-2.png")}} width="100%">      
 
     </li>
     @else
 
     <li data-target="#carousel{{$item->id}}" data-slide-to="1">
-      <img  src={{ URL::asset("images/Logo-2.png")}} width="100%">      
 
     </li>
     @endif
@@ -81,10 +76,12 @@
       
     </div>
   </div>
+  <div class="details">
   <a href="{{route('item.show',['id' => $item->id])}}"> 
          <p>{{$item->name}}</p>
   </a>
             <p>{{$item->price}} LE</p>
+</div>
             @if(Auth::check() && Auth::user()->type == 1)
 
             <p><b>Quantity : </b>{{$item->quantity}}</p>
@@ -114,7 +111,6 @@
         </div>
        @endforeach
     </div>
-</div>
 
 <div class="custom-pagination-brand-blue text-center">
 {{ $items->links() }}
@@ -177,7 +173,12 @@ $.ajax({
 
                 $(".countCart").text(data.countCart);
                 $('#messaga').text("Added Sucessfully")
-                $('#errormessage').modal();
+                // $('#errormessage').modal();
+                $('#errormessage').modal('show');
+                setTimeout(function() {
+                    $('#errormessage').modal('hide');
+                }, 1000);
+
                 } else {
                 $('#messaga').text(data.message)
                 $('#errormessage').modal();

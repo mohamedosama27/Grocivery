@@ -65,14 +65,14 @@ class CartController extends Controller
         {
             if($selcteditem->item->id == $id)
             {
-                if($item->quantity<$selcteditem->Quantity+1)
+                if($item->quantity<$selcteditem->Quantity+0.5)
                 {
                     $message='No enough items available';
                     return response()->json(['message'=>$message]);
                 }
                 else
                 {
-                    $selcteditem->Quantity+=1;
+                    $selcteditem->Quantity+=0.5;
                     $found=true;
                 }
             }
@@ -83,7 +83,7 @@ class CartController extends Controller
             array_push($selcteditems,$item);
         }
     
-    $number_of_items++;
+    $number_of_items+=0.5;
     Session::put('number_of_items',$number_of_items );
     Session::put('selcteditems',$selcteditems);
 
@@ -103,10 +103,10 @@ class CartController extends Controller
 
         for($i=0;$i<sizeof($selcteditems);$i++)
         {
-            if($selcteditems[$i]->item->id == $id && $selcteditems[$i]->Quantity > 1)
+            if($selcteditems[$i]->item->id == $id && $selcteditems[$i]->Quantity > 0.5)
             {
-                $number_of_items-=1;
-                $selcteditems[$i]->Quantity-=1;
+                $number_of_items-=0.5;
+                $selcteditems[$i]->Quantity-=0.5;
                 $quantity=$selcteditems[$i]->Quantity;
                 $item_total_price=$quantity*$selcteditems[$i]->item->price;
                 Session::put('selcteditems', $selcteditems);
@@ -137,12 +137,12 @@ class CartController extends Controller
         {
             if($selcteditems[$i]->item->id == $id)
             {
-                if($item->quantity<$selcteditems[$i]->Quantity+1){
+                if($item->quantity<$selcteditems[$i]->Quantity+0.5){
                     $message='No enough items available';
                     return response()->json(['message'=>$message]);
                 }
-                $number_of_items+=1;
-                $selcteditems[$i]->Quantity+=1;
+                $number_of_items+=0.5;
+                $selcteditems[$i]->Quantity+=0.5;
                 $quantity=$selcteditems[$i]->Quantity;
                 $item_total_price=$quantity*$selcteditems[$i]->item->price;
                 Session::put('selcteditems', $selcteditems);
