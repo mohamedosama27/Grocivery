@@ -64,7 +64,7 @@
         
         @endif
        						
-      	<button class=" btn btn-default btn-addToFavorite" data-value="{{$item->id}}" type="button" style="margin-bottom:10px;color:black;"><span class="fa fa-heart"></span></button>
+      	<button class=" btn btn-default btn-addToFavorite" data-value="{{$item->id}}" type="button" style="margin-bottom:10px;color:black;"><span class="fa fa-heart fa-fav"></span></button>
             </div>
 
 					</div>

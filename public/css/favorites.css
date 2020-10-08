@@ -20,6 +20,8 @@
 .quickview {
     height: 100%;
     background-color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 60px;
+
 }
 
 .quickview .modal-header {
@@ -29,6 +31,7 @@
 .quickview .modal-header button {
     color: white;
     opacity: 1;
+    
 }
 
 .productImg .btn {
@@ -64,7 +67,7 @@
 }
 
 .product {
-    padding-bottom: 40px;
+    margin-bottom: 60px;
 }
 
 .carousel-control .fa {

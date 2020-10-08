@@ -91,12 +91,13 @@ font-size:12px;
       
     </div>
   </div>
+  <br>
   <a href="{{route('item.show',['id' => $item->id])}}"> 
          <p>{{$item->name}}</p>
   </a>
     <p>{{$item->price}} LE</p>
     <button class="btn brandcolor raleway btnWeight btn-addtocart" data-value="{{$item->id}}">
-            Add To Cart</button>
+            <i class="fa fa-shopping-cart fa-lg"></i></button>
         
     <a href="{{route('removefromfavorites',['id' => $item->id])}}">
         <button class="remove-product btn btn-danger">

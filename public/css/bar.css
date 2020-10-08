@@ -17,9 +17,42 @@ body{
     color: #73B840;
     font-family: "Fjalla One", arial, sans-serif;
     font-weight: bold;
-    margin-top: 20px;
+    padding-top: 20px;
     margin-bottom: 20px;
 }
+/* Start search icon */
+.searchIcon{
+    padding: 20px;
+}
+/* End search icon */
+
+/* Start fav icon */
+.btn-favorite{
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    z-index: 99;
+    border-radius: 60%;
+    border: none;
+    background-color: inherit;
+    
+ }
+ .btn-favorite .fa{
+    padding: 6px;
+    color: red;
+    padding-right: 8px;
+ }
+ .wrapper .countFavs {
+    background-color: red;
+    position: fixed;
+    z-index: 199;
+    bottom: 130px;
+    right: 30px;
+    font-size: 17px;
+  
+}
+/* End fav icon */
+
 /* Start cart icon */
 .btn-cart{
     position: fixed;
@@ -28,10 +61,11 @@ body{
     z-index: 99;
     border-radius: 60%;
     border: none;
+    background-color: inherit;
  }
  .btn-cart .fa{
     padding: 6px;
-    color: white;
+    color: green;
     padding-right: 8px;
  }
  .wrapper {
@@ -48,6 +82,59 @@ body{
   
 }
 /* End cart icon */
+/* Start Search section */
+
+
+.searchResult {
+    position: absolute;
+    background-color: white;
+    margin-top: 10px;
+    margin-left: 30px;
+    min-width: 60%;
+    max-width: 80%;
+}
+
+.searchResult p {
+    font-size: 18px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 5px;
+    border-top: 1px solid black;
+}
+
+#searchModel .modal-dialog {
+    margin: 0;
+    width: 100%;
+}
+
+#searchModel .close .fa {
+    color: black;
+    margin-top: 10px;
+}
+
+#searchModel .close {
+    opacity: 1;
+    font-weight: 100;
+    font-size: 30px;
+    margin-top: 5px;
+}
+.fa-search{
+    font-weight: 100;
+}
+#searchModel .modal-content {
+    padding: 10px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+#searchModel .modal-content input {
+    margin-top: 5px;
+    display: inline-block;
+    width: 80%;
+    border: 0px;
+}
+/* End search section */
    a:hover{
         color: #73B840;
     }

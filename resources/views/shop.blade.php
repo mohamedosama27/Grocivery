@@ -146,8 +146,13 @@ $.ajax({
     success: function(data) {
 
         $('#messaga').text(data.message)
-        $('#errormessage').modal();
-        $(".countfavorites").text(data.countFavorites);
+        // $('#errormessage').modal();
+        $('#errormessage').modal('show');
+                setTimeout(function() {
+                    $('#errormessage').modal('hide');
+                }, 1000);
+
+        $(".countFavs").text(data.countFavorites);
 
     }
 

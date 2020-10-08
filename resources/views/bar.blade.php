@@ -19,6 +19,30 @@
 
 
   </head>
+  <!-- Start Search Modal -->
+<div class="modal fade" id="searchModel" role="dialog">
+  <div class="modal-dialog modal-lg">
+  
+    <div class="modal-content">
+    
+
+
+        <button type="button" class="close" data-dismiss="modal">
+        &times;
+        </button>
+        <i class="fa fa-search fa-lg " ></i>
+
+        <input class="form-control" id="searchInput" type="text" placeholder="Search"/>
+        <div class="searchResult">
+      
+        </div>
+
+    </div>
+    
+  </div>
+</div>
+<!-- End Search Modal -->
+
   @php( $home_top_titles = \App\home_top_title::all() )
     @foreach($home_top_titles as $home_top_title)
   <div class="toptext brandcolor text-center">
@@ -42,7 +66,7 @@
           <div class="content">
             <ul class="nav navbar-nav">
               <li>  
-                <a href="#"><h4>HOME</h4></a> 
+                <a href="{{route('home')}}"><h4>HOME</h4></a> 
               </li>
               <hr>
               <li class="dropdown visible-xs">
@@ -195,9 +219,14 @@
   </div>
 
   <!-- End modal menu  -->
-  <a href="{{route('welcome')}}" >
-    <p class="logo title text-center">GROCIVERY</p>
+  <a href="{{route('welcome')}}" class="logo title text-center">
+    GROCIVERY
   </a>
+
+  <a data-toggle="modal" data-target="#searchModel">
+    <i class="pull-right fa fa-search fa-lg visible-xs searchIcon" ></i>
+  </a>
+
   <div class="mainBar hidden-xs">
       <ul class="nav navbar-nav ">
       <li>
@@ -354,9 +383,17 @@
     </div>
   </div>
   <hr>
+
+  <div class="wrapper">
+<a href="{{route('favorites')}}">
+  <button class="btn-favorite"><i class="fa fa-heart fa-3x"></i></button>
+      <span class="badge countFavs">@auth @php( $x = Auth::user()->favorites()->count()){{$x}}@endauth</span>
+      </a> 
+    </div> 
+
   <div class="wrapper">
 <a href="{{route('cart')}}">
-  <button class="btn-cart brandcolor"><i class="fa fa-shopping-cart fa-3x"></i></button>
+  <button class="btn-cart "><i class="fa fa-shopping-cart fa-3x"></i></button>
       <span class="badge countCart" id='countcart'>@if(session()->has('number_of_items')){{Session::get('number_of_items')}}@endif</span>
       </a> 
     </div>
@@ -369,3 +406,25 @@
 
 
 </body>
+<script>
+  $.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
+   $('#searchInput').keyup(function(){ 
+        var query = $(this).val();
+        
+         var _token = $('input[name="_token"]').val();
+         $.ajax({
+          url:"{{ route('ItemController.search') }}",
+          method:"POST",
+          data:{query:query, _token:_token},
+          success:function(data){
+          $('.searchResult').html(data.result)
+           
+          }
+         });
+        
+    });
+  </script>
